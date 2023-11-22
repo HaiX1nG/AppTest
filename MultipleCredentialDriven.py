@@ -20,9 +20,9 @@ def get_csv_data(csv_path):
 @ddt
 class TestCase1(unittest.TestCase):
     @classmethod
-    def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(30)
+    def setUp(cls):
+        cls.driver = webdriver.Chrome()
+        cls.driver.implicitly_wait(30)
 
     @data(*get_csv_data('MultipleCredentialDriven.csv'))
     @unpack
@@ -35,8 +35,8 @@ class TestCase1(unittest.TestCase):
         sleep(2)
 
     @classmethod
-    def tearDown(self):
-        self.driver.quit()
+    def tearDown(cls):
+        cls.driver.quit()
 
 
 if __name__ == '__main__':
